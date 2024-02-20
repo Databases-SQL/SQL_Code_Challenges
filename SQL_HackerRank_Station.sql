@@ -103,3 +103,33 @@ Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, a
 Your result cannot contain duplicates.
 '''
 
+SELECT DISTINCT CITY 
+FROM STATION
+WHERE LOWER(LEFT(CITY, 1) IN ('a', 'e', 'i', 'o', 'u'))
+AND LOWER(RIGHT(CITY, 1) IN ('a', 'e', 'i', 'o', 'u'));
+
+
+--USING REGEX
+
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY REGEXP '^[aeiouAEIOU]'
+AND CITY REGEXP '[aeiouAEIOU]$';
+
+--------------------------------------------------------------------------------
+
+'''
+Query the list of CITY names from STATION that do not start with vowels. 
+Your result cannot contain duplicates.
+'''
+SELECT DISTINCT CITY
+FROM STATION
+WHERE UPPER(LEFT(CITY, 1) NOT IN ('A', 'E', 'I', 'O', 'U'));
+
+--USING REGEX
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY NOT REGEXP ('^[AEIOUaeiou]');
+
+--------------------------------------------------------------------------------
+
