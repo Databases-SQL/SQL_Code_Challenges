@@ -76,3 +76,30 @@ SELECT DISTINCT CITY
 FROM STATION
 WHERE CITY REGEXP '^[aeiouAEIOU]';
 ----------------------------------------------------------------------------
+
+'''
+Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. 
+Your result cannot contain duplicates.
+'''
+
+SELECT DISTINCT CITY
+FROM STATION
+WHERE UPPER(RIGHT(CITY,1) IN ('A', 'E', 'I', 'O', 'U'));
+
+-- USING REGEX
+'''
+Use the REGEXP operator to match CITY names that end with any vowel (uppercase or lowercase). 
+The $ sign represents the end of the string.
+'''
+
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY REGEXP '[aeiouAEIOU]$';
+
+------------------------------------------------------------------------------
+
+'''
+Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. 
+Your result cannot contain duplicates.
+'''
+
