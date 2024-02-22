@@ -17,7 +17,7 @@ Write a query that prints a list of employee names
 
 SELECT NAME
 FROM EMPLOYEE
-ORDER BY NAME ASC
+ORDER BY NAME ASC;
 
 -----------------------------------------------------------
 
@@ -32,7 +32,32 @@ SELECT NAME
 FROM EMPLOYEE
 WHERE SALARY > 2000
 AND MONTHS < 10
-ORDER BY EMPLOYEE_ID
+ORDER BY EMPLOYEE_ID;
 
 ------------------------------------------------------------
+'''
+We define an employees total earnings to be their monthly months * salary worked, 
+and the maximum total earnings to be the maximum total earnings for 
+any employee in the Employee table. 
+Write a query to find the maximum total earnings for all employees as well as 
+the total number of employees who have maximum total earnings. 
+Then print these values as 2 space-separated integers.
+'''
+SELECT (SALARY * MONTHS) as earnings, count(*)
+FROM EMPLOYEE
+GROUP BY earnings
+ORDER BY earnings DESC
+LIMIT 1;
+
+--OR
+
+SELECT MAX(SALARY * MONTHS) AS max_total_earnings,
+       COUNT(*) AS num_employees_with_max_earnings
+FROM EMPLOYEE
+WHERE SALARY * MONTHS = (SELECT MAX(SALARY * MONTHS) FROM EMPLOYEE);
+
+-------------------------------------------------------------
+
+
+
 
