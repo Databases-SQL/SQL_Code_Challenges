@@ -34,3 +34,24 @@ Group by occupation
 Order by count(Name), Occupation
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
+
+'''
+Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. 
+The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
+
+Note: Print NULL when there are no more names corresponding to an occupation.
+'''
+
+SELECT 
+    MAX(CASE WHEN Occupation='Doctor' THEN Name END) AS d,
+    MAX(CASE WHEN Occupation='Professor' THEN Name END) AS p,
+    MAX(CASE WHEN Occupation='Singer' THEN Name END) AS s,
+    MAX(CASE WHEN Occupation='Actor' THEN Name END) AS a
+FROM (
+        SELECT *, 
+        ROW_NUMBER() OVER(PARTITION BY Occupation ORDER BY Name) AS row_num
+        FROM Occupations) as T
+GROUP BY row_num
+ORDER BY row_num
+
+------------------------------------------------------------------------------------------------------------------------------------------------
