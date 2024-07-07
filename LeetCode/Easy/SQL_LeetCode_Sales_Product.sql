@@ -1,3 +1,6 @@
+# Product Sales Analysis I
+
+
 -- Table: Sales
 
 +-------------+-------+
