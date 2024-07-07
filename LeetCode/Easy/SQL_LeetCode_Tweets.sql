@@ -1,3 +1,6 @@
+# Invalid Tweets
+
+
 -- Table: Tweets
 
 +----------------+---------+
