@@ -1,4 +1,6 @@
-Table: World
+# Big Countries
+
+-- Table: World
 
 +-------------+---------+
 | Column Name | Type    |
@@ -9,25 +11,25 @@ Table: World
 | population  | int     |
 | gdp         | bigint  |
 +-------------+---------+
-name is the primary key (column with unique values) for this table.
-Each row of this table gives information about the name of a country, the continent to which it belongs, its area, the population, and its GDP value.
+-- name is the primary key (column with unique values) for this table.
+-- Each row of this table gives information about the name of a country, the continent to which it belongs, its area, the population, and its GDP value.
  
 
-A country is big if:
+-- A country is big if:
 
-it has an area of at least three million (i.e., 3000000 km2), or
-it has a population of at least twenty-five million (i.e., 25000000).
+-- it has an area of at least three million (i.e., 3000000 km2), or
+-- it has a population of at least twenty-five million (i.e., 25000000).
 
-Return the result table in any order.
+-- Return the result table in any order.
 
-The result format is in the following example.
+-- The result format is in the following example.
 
  
 
-Example 1:
+-- Example 1:
 
-Input: 
-World table:
+-- Input: 
+-- World table:
 +-------------+-----------+---------+------------+--------------+
 | name        | continent | area    | population | gdp          |
 +-------------+-----------+---------+------------+--------------+
@@ -37,7 +39,7 @@ World table:
 | Andorra     | Europe    | 468     | 78115      | 3712000000   |
 | Angola      | Africa    | 1246700 | 20609294   | 100990000000 |
 +-------------+-----------+---------+------------+--------------+
-Output: 
+-- Output: 
 +-------------+------------+---------+
 | name        | population | area    |
 +-------------+------------+---------+
